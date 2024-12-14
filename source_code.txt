@@ -1,0 +1,21 @@
+import pandas as pd
+movie_info = pd.read_csv('movie_dataset')
+movie_info
+
+input_dataset = movie_info.drop(columns = {'Interest'} )
+input_dataset
+
+output_dataset = movie_info['Interest']
+output_dataset
+
+from sklearn.tree import DecisionTreeClassifier
+
+# Assuming input_dataset and output_dataset are already defined
+movie_model = DecisionTreeClassifier()
+movie_model.fit(input_dataset, output_dataset)
+
+# Reshape input data to 2D array (1 sample, 2 features in this case)
+movie_interest = movie_model.predict([[9, 1], [33, 0]])
+
+movie_interest
+
